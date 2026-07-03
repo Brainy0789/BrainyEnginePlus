@@ -124,6 +124,7 @@
 	<haxelib name="hxvlc" if="VIDEOS_ALLOWED" version="2.0.1"/>
 	<haxelib name="hxdiscord_rpc" version="1.2.4" if="DISCORD_ALLOWED"/>
 	<haxelib name="flxanimate"/>
+	<haxelib name="tjson"/>
 
 	<!-- Disable Discord IO Thread -->
 	<haxedef name="DISCORD_DISABLE_IO_THREAD" if="hxdiscord_rpc" />
@@ -139,6 +140,7 @@
 
 	<haxeflag name="-xml" />
 	<haxeflag name="types.xml" />
+	<haxedef name="dce" value="no" />
 
 	<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />
 	

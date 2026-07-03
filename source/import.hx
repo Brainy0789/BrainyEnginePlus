@@ -1,7 +1,9 @@
 #if !macro
+import haxe.Json;
+import tjson.TJSON;
 //Discord API
 #if DISCORD_ALLOWED
-import backend.Discord;
+import core.Discord;
 #end
 
 //Psych
@@ -11,7 +13,7 @@ import llua.Lua;
 #end
 
 #if ACHIEVEMENTS_ALLOWED
-import backend.Achievements;
+import core.Achievements;
 #end
 
 #if sys
@@ -21,18 +23,18 @@ import sys.io.*;
 import js.html.*;
 #end
 
-import backend.Paths;
-import backend.Controls;
-import backend.CoolUtil;
-import backend.MusicBeatState;
-import backend.MusicBeatSubstate;
-import backend.CustomFadeTransition;
-import backend.ClientPrefs;
-import backend.Conductor;
-import backend.BaseStage;
-import backend.Difficulty;
-import backend.Mods;
-import backend.Language;
+import core.Paths;
+import core.Controls;
+import core.CoolUtil;
+import core.MusicBeatState;
+import core.MusicBeatSubstate;
+import core.CustomFadeTransition;
+import core.ClientPrefs;
+import core.Conductor;
+import core.BaseStage;
+import core.Difficulty;
+import core.Mods;
+import core.Language;
 
 import brainy.ui.*; //Psych-UI
 
