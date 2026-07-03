@@ -1,6 +1,6 @@
-package scripting.helpers;
+package core.scripting.helpers;
 
-import scripting.*;
+import core.scripting.*;
 #if MODS_ALLOWED
 import sys.FileSystem;
 #end

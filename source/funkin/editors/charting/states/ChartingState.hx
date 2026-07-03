@@ -1,4 +1,4 @@
-package states.editors;
+package editors.charting.states;
 
 import flixel.FlxSubState;
 import flixel.util.FlxSave;

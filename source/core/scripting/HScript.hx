@@ -2,11 +2,11 @@ package scripting;
 
 import flixel.FlxBasic;
 import objects.Character;
-import scripting.LuaUtils;
-import scripting.CustomSubstate;
+import core.scripting.LuaUtils;
+import core.scripting.CustomSubstate;
 
 #if LUA_ALLOWED
-import scripting.FunkinLua;
+import core.scripting.FunkinLua;
 #end
 
 #if HSCRIPT_ALLOWED

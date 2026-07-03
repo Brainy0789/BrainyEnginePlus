@@ -3,7 +3,7 @@ package backend;
 import openfl.utils.Assets;
 import tjson.TJSON;
 import core.Song;
-import scripting.ModchartSprite;
+import core.scripting.ModchartSprite;
 
 typedef StageFile = {
 	var directory:String;

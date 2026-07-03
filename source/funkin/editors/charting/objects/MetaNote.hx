@@ -1,4 +1,4 @@
-package states.editors.content;
+package editors.charting.objects;
 
 import objects.Note;
 import shaders.RGBPalette;

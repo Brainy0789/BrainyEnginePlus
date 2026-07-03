@@ -6,7 +6,7 @@ import haxe.Exception;
 import tjson.TJSON;
 
 #if LUA_ALLOWED
-import scripting.FunkinLua;
+import core.scripting.FunkinLua;
 #end
 
 typedef Achievement =

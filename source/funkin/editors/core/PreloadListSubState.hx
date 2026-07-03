@@ -1,4 +1,4 @@
-package states.editors.content;
+package funkin.editors.core;
 
 import haxe.io.Path;
 import flixel.util.FlxDestroyUtil;

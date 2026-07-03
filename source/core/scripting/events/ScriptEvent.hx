@@ -1,4 +1,4 @@
-package scripting.events;
+package core.scripting.events;
 
 import flixel.FlxState;
 

@@ -1,6 +1,6 @@
-package scripting.interfaces;
+package core.scripting.interfaces;
 
-import scripting.*;
+import core.scripting.*;
 
 interface IScriptable 
 {

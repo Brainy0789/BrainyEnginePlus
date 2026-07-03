@@ -5,11 +5,11 @@ import flixel.FlxState;
 import core.PsychCamera;
 import core.StateData;
 
-import scripting.*;
-import scripting.helpers.*;
-import scripting.events.ScriptEvent;
+import core.scripting.*;
+import core.scripting.helpers.*;
+import core.scripting.events.ScriptEvent;
 
-class MusicBeatState extends FlxState implements scripting.interfaces.IScriptable implements BrainyUIEvent
+class MusicBeatState extends FlxState implements core.scripting.interfaces.IScriptable implements BrainyUIEvent
 {
 	public var scripts:Map<String, HScript> = new Map();
 	private var curSection:Int = 0;
@@ -42,7 +42,7 @@ class MusicBeatState extends FlxState implements scripting.interfaces.IScriptabl
 	public function reloadScripts()
 	{
 		trace(scriptName);
-		scripts.set(scriptName, Scripting.loadScript(scriptName, 'states'));
+		scripts.set(scriptName, core.scripting.loadScript(scriptName, 'states'));
 		script = scripts.get(scriptName);
 	}
 
@@ -54,7 +54,7 @@ class MusicBeatState extends FlxState implements scripting.interfaces.IScriptabl
 		#if HSCRIPT_ALLOWED
 		if (nameOver == null)
 		{
-			scriptName = Scripting.getClassName(this);
+			scriptName = core.scripting.getClassName(this);
 		}
 		else
 			scriptName = nameOver;
@@ -225,9 +225,9 @@ class MusicBeatState extends FlxState implements scripting.interfaces.IScriptabl
 
 		nextState = stateEvent.nextState;
 
-		var stateName = Scripting.getClassName(nextState);
+		var stateName = core.scripting.getClassName(nextState);
 		ScriptedStateHandler.curState = stateName;
-		var data = StateData.loadStateData(Scripting.getClassName(nextState));
+		var data = StateData.loadStateData(core.scripting.getClassName(nextState));
 		if (data.mode == 'override')
 			nextState = ScriptedStateHandler.getStateInstance(stateName);
 		
@@ -365,7 +365,7 @@ class ScriptedStateHandler
 	**/
 	public static function resetState()
 	{
-		if (curState == Scripting.getClassName(FlxG.state))
+		if (curState == core.scripting.getClassName(FlxG.state))
 		{
 			FlxG.resetState();
 			return;

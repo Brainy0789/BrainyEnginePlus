@@ -38,10 +38,10 @@ import core.Language;
 
 import brainy.ui.*; //Psych-UI
 
-import objects.Alphabet;
-import objects.BGSprite;
+import funkin.objects.Alphabet;
+import funkin.play.objects.BGSprite;
 
-import states.PlayState;
+import funkin.play.states.PlayState;
 import states.LoadingState;
 
 #if flxanimate

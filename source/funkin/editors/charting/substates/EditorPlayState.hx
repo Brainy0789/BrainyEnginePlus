@@ -1,4 +1,4 @@
-package states.editors.content;
+package editors.charting.substates;
 
 import core.Song;
 import core.Rating;

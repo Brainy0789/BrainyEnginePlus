@@ -1,9 +1,9 @@
-package states.editors;
+package funkin.editors.menus.states;
 
 import core.StageData;
 import core.PsychCamera;
 import objects.Character;
-import scripting.LuaUtils;
+import core.scripting.LuaUtils;
 
 import flixel.FlxObject;
 import flixel.addons.display.FlxBackdrop;
@@ -20,7 +20,7 @@ import openfl.net.FileReference;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 
-import scripting.ModchartSprite;
+import core.scripting.ModchartSprite;
 import flash.net.FileFilter;
 
 import states.editors.content.Prompt;

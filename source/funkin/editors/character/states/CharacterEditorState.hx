@@ -1,4 +1,4 @@
-package states.editors;
+package funkin.editors.character.states;
 
 import flixel.graphics.FlxGraphic;
 

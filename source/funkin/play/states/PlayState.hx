@@ -24,7 +24,7 @@ import cutscenes.DialogueBoxPsych;
 import states.StoryMenuState;
 import states.FreeplayState;
 import states.editors.ChartingState;
-import states.editors.CharacterEditorState;
+import funkin.editors.character.states.CharacterEditorState;
 
 import funkin.substates.PauseSubState;
 import funkin.substates.GameOverSubstate;
@@ -42,14 +42,14 @@ import states.stages.*;
 import states.stages.objects.*;
 
 #if LUA_ALLOWED
-import scripting.*;
+import core.scripting.*;
 #else
-import scripting.LuaUtils;
-import scripting.HScript;
+import core.scripting.LuaUtils;
+import core.scripting.HScript;
 #end
 
 #if HSCRIPT_ALLOWED
-import scripting.HScript.HScriptInfos;
+import core.scripting.HScript.HScriptInfos;
 import crowplexus.iris.Iris;
 import crowplexus.hscript.Expr.Error as IrisError;
 import crowplexus.hscript.Printer;
@@ -260,7 +260,7 @@ class PlayState extends MusicBeatState
 	public static var instance:PlayState;
 
 	#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
-	private var luaDebugGroup:FlxTypedGroup<scripting.DebugLuaText>;
+	private var luaDebugGroup:FlxTypedGroup<core.scripting.DebugLuaText>;
 	#end
 	public var introSoundsSuffix:String = '';
 
@@ -401,7 +401,7 @@ class PlayState extends MusicBeatState
 		if(isPixelStage) introSoundsSuffix = '-pixel';
 
 		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
-		luaDebugGroup = new FlxTypedGroup<scripting.DebugLuaText>();
+		luaDebugGroup = new FlxTypedGroup<core.scripting.DebugLuaText>();
 		luaDebugGroup.cameras = [camOther];
 		add(luaDebugGroup);
 		#end
@@ -708,14 +708,14 @@ class PlayState extends MusicBeatState
 
 	#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 	public function addTextToDebug(text:String, color:FlxColor) {
-		var newText:scripting.DebugLuaText = luaDebugGroup.recycle(scripting.DebugLuaText);
+		var newText:core.scripting.DebugLuaText = luaDebugGroup.recycle(core.scripting.DebugLuaText);
 		newText.text = text;
 		newText.color = color;
 		newText.disableTime = 6;
 		newText.alpha = 1;
 		newText.setPosition(10, 8 - newText.height);
 
-		luaDebugGroup.forEachAlive(function(spr:scripting.DebugLuaText) {
+		luaDebugGroup.forEachAlive(function(spr:core.scripting.DebugLuaText) {
 			spr.y += newText.height + 2;
 		});
 		luaDebugGroup.add(newText);
@@ -3178,7 +3178,7 @@ class PlayState extends MusicBeatState
 	}
 
 	override function destroy() {
-		if (scripting.CustomSubstate.instance != null)
+		if (core.scripting.CustomSubstate.instance != null)
 		{
 			closeSubState();
 			resetSubState();
