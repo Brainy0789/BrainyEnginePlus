@@ -1,4 +1,4 @@
-package brainy.ui;
+package core.ui;
 
 typedef UIStyleData = {
 	var bgColor:FlxColor;

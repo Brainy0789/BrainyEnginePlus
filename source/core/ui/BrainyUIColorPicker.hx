@@ -1,4 +1,4 @@
-package brainy.ui;
+package core.ui;
 
 class BrainyUIColorPicker extends funkin.FunkinSpriteGroup
 {

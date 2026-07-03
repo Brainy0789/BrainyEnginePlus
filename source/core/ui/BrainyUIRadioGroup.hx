@@ -1,4 +1,4 @@
-package brainy.ui;
+package core.ui;
 
 import flixel.util.FlxDestroyUtil;
 import flixel.FlxObject;

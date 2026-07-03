@@ -10,7 +10,7 @@ import openfl.utils.Assets;
 import tjson.TJSON;
 
 import core.Song;
-import states.stages.objects.TankmenBG;
+import play.stages.objects.TankmenBG;
 
 typedef CharacterFile = {
 	var animations:Array<AnimArray>;
@@ -200,7 +200,7 @@ class Character extends FlxSprite
 
 		// antialiasing
 		noAntialiasing = (json.no_antialiasing == true);
-		antialiasing = ClientPrefs.data.antialiasing ? !noAntialiasing : false;
+		antialiasing = Preferences.data.antialiasing ? !noAntialiasing : false;
 
 		// animations
 		animationsArray = json.animations;

@@ -5,10 +5,10 @@ import flixel.util.FlxDestroyUtil;
 import flash.net.FileFilter;
 
 import core.StageData;
-import brainy.ui.BrainyUIButton;
-import brainy.ui.BrainyUIRadioGroup;
-import brainy.ui.BrainyUICheckBox;
-import brainy.ui.BrainyUIEventHandler;
+import core.ui.BrainyUIButton;
+import core.ui.BrainyUIRadioGroup;
+import core.ui.BrainyUICheckBox;
+import core.ui.BrainyUIEventHandler;
 import states.editors.content.FileDialogHandler;
 
 class PreloadListSubState extends MusicBeatSubstate implements BrainyUIEvent

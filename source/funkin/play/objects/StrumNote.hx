@@ -32,8 +32,8 @@ class StrumNote extends FlxSprite
 		rgbShader.enabled = false;
 		if(PlayState.SONG != null && PlayState.SONG.disableNoteRGB) useRGBShader = false;
 		
-		var arr:Array<FlxColor> = ClientPrefs.data.arrowRGB[leData];
-		if(PlayState.isPixelStage) arr = ClientPrefs.data.arrowRGBPixel[leData];
+		var arr:Array<FlxColor> = Preferences.data.arrowRGB[leData];
+		if(PlayState.isPixelStage) arr = Preferences.data.arrowRGBPixel[leData];
 		
 		if(leData <= arr.length)
 		{
@@ -110,7 +110,7 @@ class StrumNote extends FlxSprite
 			animation.addByPrefix('purple', 'arrowLEFT');
 			animation.addByPrefix('red', 'arrowRIGHT');
 
-			antialiasing = ClientPrefs.data.antialiasing;
+			antialiasing = Preferences.data.antialiasing;
 			setGraphicSize(Std.int(width * 0.7));
 
 			switch (Math.abs(noteData) % 4)

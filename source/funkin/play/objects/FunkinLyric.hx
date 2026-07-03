@@ -1,6 +1,6 @@
 package funkin.objects;
 
-using core.BrainyG;
+using core.util.SpriteTools;
 
 class FunkinLyric extends funkin.FunkinSpriteGroup
 {

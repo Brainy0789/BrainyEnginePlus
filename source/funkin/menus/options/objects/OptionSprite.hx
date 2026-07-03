@@ -1,6 +1,6 @@
-package options.objects;
+package funkin.menu.options.objects;
 
-import brainy.ui.*;
+import core.ui.*;
 import options.objects.OptionModal;
 
 /**
@@ -42,19 +42,19 @@ class OptionSprite extends FlxSpriteGroup
     }
 
     public function get_value():Dynamic
-        return Reflect.getProperty(ClientPrefs.data, saveName);
+        return Reflect.getProperty(Preferences.data, saveName);
 
     public function set_value(v:Dynamic):Dynamic
     {
         
-        Reflect.setProperty(ClientPrefs.data, saveName, v);
+        Reflect.setProperty(Preferences.data, saveName, v);
         return v;
     }
 
     public function new(X:Float, Y:Float, name:String, saveName:String, type:String, ?desc:String, ?parameters:Dynamic)
     {
         super(X, Y);
-        //this.value = Reflect.getProperty(ClientPrefs.defaultData, saveName);
+        //this.value = Reflect.getProperty(Preferences.defaultData, saveName);
 
         this.name = name;
         this.saveName = saveName;
@@ -122,15 +122,15 @@ class OptionSprite extends FlxSpriteGroup
 
     function onChangeFramerate()
 	{
-		if(ClientPrefs.data.framerate > FlxG.drawFramerate)
+		if(Preferences.data.framerate > FlxG.drawFramerate)
 		{
-			FlxG.updateFramerate = ClientPrefs.data.framerate;
-			FlxG.drawFramerate = ClientPrefs.data.framerate;
+			FlxG.updateFramerate = Preferences.data.framerate;
+			FlxG.drawFramerate = Preferences.data.framerate;
 		}
 		else
 		{
-			FlxG.drawFramerate = ClientPrefs.data.framerate;
-			FlxG.updateFramerate = ClientPrefs.data.framerate;
+			FlxG.drawFramerate = Preferences.data.framerate;
+			FlxG.updateFramerate = Preferences.data.framerate;
 		}
 	}
 }

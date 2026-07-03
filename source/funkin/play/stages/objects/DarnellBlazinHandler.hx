@@ -1,4 +1,4 @@
-package states.stages.objects;
+package play.stages.objects;
 
 import objects.Note;
 import objects.Character;

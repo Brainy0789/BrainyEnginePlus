@@ -29,14 +29,14 @@ import core.CoolUtil;
 import core.MusicBeatState;
 import core.MusicBeatSubstate;
 import core.CustomFadeTransition;
-import core.ClientPrefs;
+import core.prefs.Preferences;
 import core.Conductor;
-import core.BaseStage;
+import funkin.play.stages.BaseStage;
 import core.Difficulty;
 import core.Mods;
 import core.Language;
 
-import brainy.ui.*; //Psych-UI
+import core.ui.*; //Psych-UI
 
 import funkin.objects.Alphabet;
 import funkin.play.objects.BGSprite;
@@ -66,4 +66,5 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.addons.transition.FlxTransitionableState;
 
 using StringTools;
+using core.util.SpriteTools;
 #end

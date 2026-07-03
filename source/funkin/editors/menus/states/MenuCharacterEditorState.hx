@@ -211,7 +211,7 @@ class MenuCharacterEditorState extends MusicBeatState implements BrainyUIEventHa
 	override function update(elapsed:Float) {
 		if(BrainyUIInputText.focusOn == null)
 		{
-			ClientPrefs.toggleVolumeKeys(true);
+			Preferences.toggleVolumeKeys(true);
 			if(FlxG.keys.justPressed.ESCAPE) {
 				if(!unsavedProgress)
 				{
@@ -245,7 +245,7 @@ class MenuCharacterEditorState extends MusicBeatState implements BrainyUIEventHa
 				grpWeekCharacters.members[characterTypeRadio.checked].animation.play('confirm', true);
 			}
 		}
-		else ClientPrefs.toggleVolumeKeys(false);
+		else Preferences.toggleVolumeKeys(false);
 
 		var char:MenuCharacter = grpWeekCharacters.members[1];
 		if(char.animation.curAnim != null && char.animation.curAnim.name == 'confirm' && char.animation.curAnim.finished)

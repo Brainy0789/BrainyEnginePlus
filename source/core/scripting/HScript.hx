@@ -161,14 +161,14 @@ class HScript extends Iris
 		set('FlxTween', flixel.tweens.FlxTween);
 		set('FlxEase', flixel.tweens.FlxEase);
 		set('FlxColor', CustomFlxColor);
-		set('Countdown', core.BaseStage.Countdown);
+		set('Countdown', funkin.play.stages.BaseStage.Countdown);
 		set('PlayState', PlayState);
 		set('state', FlxG.state);
 		set('members', FlxG.state.members);
 		set('donkeyKongIsMyFavoriteAvenger', 'donkeyKongIsMyFavoriteAvenger');
 		set('Paths', Paths);
 		set('Conductor', Conductor);
-		set('ClientPrefs', ClientPrefs);
+		set('Preferences', Preferences);
 		#if ACHIEVEMENTS_ALLOWED
 		set('Achievements', Achievements);
 		#end

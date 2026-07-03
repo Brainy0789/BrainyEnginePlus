@@ -1,4 +1,4 @@
-package states.stages.objects;
+package play.stages.objects;
 
 class PhillyGlowParticle extends FlxSprite
 {
@@ -11,7 +11,7 @@ class PhillyGlowParticle extends FlxSprite
 		this.color = color;
 
 		loadGraphic(Paths.image('philly/particle'));
-		antialiasing = ClientPrefs.data.antialiasing;
+		antialiasing = Preferences.data.antialiasing;
 		start();
 	}
 
@@ -19,7 +19,7 @@ class PhillyGlowParticle extends FlxSprite
 	{
 		lifeTime = FlxG.random.float(0.6, 0.9);
 		decay = FlxG.random.float(0.8, 1);
-		if(!ClientPrefs.data.flashing)
+		if(!Preferences.data.flashing)
 		{
 			decay *= 0.5;
 			alpha = 0.5;

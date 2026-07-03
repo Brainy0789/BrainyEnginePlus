@@ -1,6 +1,6 @@
-package options;
+package funkin.menu.options.states;
 
-import brainy.ui.BrainyUIEventHandler.BrainyUIEvent;
+import core.ui.BrainyUIEventHandler.BrainyUIEvent;
 import states.MainMenuState;
 import options.*;
 import options.objects.OptionSprite;
@@ -91,7 +91,7 @@ class OptionsState extends MusicBeatState implements BrainyUIEvent
 
     override function destroy()
     {
-        ClientPrefs.saveSettings();
+        Preferences.saveSettings();
         super.destroy();
         FlxG.mouse.visible = false;
     }
@@ -233,17 +233,17 @@ class OptionsState extends MusicBeatState implements BrainyUIEvent
         var spacing = 40;
 
         var noteSkinsArray:Array<String> = Mods.mergeAllTextsNamed('images/noteSkins/list.txt');
-        if (!noteSkinsArray.contains(ClientPrefs.data.noteSkin))
-            ClientPrefs.data.noteSkin = ClientPrefs.defaultData.noteSkin;
-        noteSkinsArray.insert(0, ClientPrefs.defaultData.noteSkin);
+        if (!noteSkinsArray.contains(Preferences.data.noteSkin))
+            Preferences.data.noteSkin = Preferences.defaultData.noteSkin;
+        noteSkinsArray.insert(0, Preferences.defaultData.noteSkin);
 
         noteSkinOpt = new OptionSprite(objX, objY, 'Note Skins:', 'noteSkin', 'string', "Select your prefered Note skin.", {options: noteSkinsArray});
         objY += spacing;
 
         var noteSplashesArray:Array<String> = Mods.mergeAllTextsNamed('images/noteSplashes/list.txt');
-        if (!noteSplashesArray.contains(ClientPrefs.data.splashSkin))
-            ClientPrefs.data.splashSkin = ClientPrefs.defaultData.splashSkin;
-        noteSplashesArray.insert(0, ClientPrefs.defaultData.splashSkin);
+        if (!noteSplashesArray.contains(Preferences.data.splashSkin))
+            Preferences.data.splashSkin = Preferences.defaultData.splashSkin;
+        noteSplashesArray.insert(0, Preferences.defaultData.splashSkin);
 
         splashSkinOpt = new OptionSprite(objX, objY, 'Note Splashes:', 'splashSkin', 'string', "Select your prefered Note Splash variation.", {options: noteSplashesArray});
         objY += spacing;
@@ -382,16 +382,16 @@ class OptionsState extends MusicBeatState implements BrainyUIEvent
             case BrainyUISlider.CHANGE_EVENT:
                 if (sender == hitsoundVolume)
                 {
-                    FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.data.hitsoundVolume);
+                    FlxG.sound.play(Paths.sound('hitsound'), Preferences.data.hitsoundVolume);
                 }
 
 			case BrainyUICheckBox.CLICK_EVENT:
 				if (sender == fpsCounter)
 					if(Main.fpsVar != null)
-						Main.fpsVar.visible = ClientPrefs.data.showFPS;
+						Main.fpsVar.visible = Preferences.data.showFPS;
         }
 
-		ClientPrefs.saveSettings();
+		Preferences.saveSettings();
     }
 
     public inline static function makeText(X, Y, Text):FlxText

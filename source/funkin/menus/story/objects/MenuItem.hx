@@ -1,4 +1,4 @@
-package objects;
+package funkin.menu.story.objects;
 
 class MenuItem extends FlxSprite
 {
@@ -8,7 +8,7 @@ class MenuItem extends FlxSprite
 	{
 		super(x, y);
 		loadGraphic(Paths.image('storymenu/' + weekName));
-		antialiasing = ClientPrefs.data.antialiasing;
+		antialiasing = Preferences.data.antialiasing;
 		//trace('Test added: ' + WeekData.getWeekNumber(weekNum) + ' (' + weekNum + ')');
 	}
 

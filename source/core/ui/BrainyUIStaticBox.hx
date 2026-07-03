@@ -1,6 +1,6 @@
-package brainy.ui;
+package core.ui;
 
-class BrainyUIStaticBox extends brainy.ui.BrainyUIBox
+class BrainyUIStaticBox extends core.ui.BrainyUIBox
 {
     public function new(x:Float, y:Float, width:Int, height:Int, tabs:Array<String> = null, canMinimize:Bool = false)
     {

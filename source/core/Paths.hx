@@ -1,4 +1,4 @@
-package backend;
+package core;
 
 import flixel.graphics.frames.FlxFrame.FlxFrameAngle;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -259,7 +259,7 @@ class Paths
 			}
 		}
 
-		if (allowGPU && ClientPrefs.data.cacheOnGPU && bitmap.image != null)
+		if (allowGPU && Preferences.data.cacheOnGPU && bitmap.image != null)
 		{
 			bitmap.lock();
 			if (bitmap.__texture == null)

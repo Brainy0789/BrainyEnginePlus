@@ -1,6 +1,6 @@
-package options.objects;
+package funkin.menu.options.objects;
 
-using core.BrainyG;
+using core.util.SpriteTools;
 
 class OptionModal extends FlxSpriteGroup
 {

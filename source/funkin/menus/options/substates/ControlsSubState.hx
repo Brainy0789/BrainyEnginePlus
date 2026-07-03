@@ -1,4 +1,4 @@
-package options;
+package funkin.menu.options.substates;
 
 import core.InputFormatter;
 import flixel.addons.display.FlxBackdrop;
@@ -77,7 +77,7 @@ class ControlsSubState extends MusicBeatSubstate
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.color = keyboardColor;
-		bg.antialiasing = ClientPrefs.data.antialiasing;
+		bg.antialiasing = Preferences.data.antialiasing;
 		bg.screenCenter();
 		add(bg);
 
@@ -102,7 +102,7 @@ class ControlsSubState extends MusicBeatSubstate
 		add(grpBinds);
 
 		controllerSpr = new FlxSprite(50, 40).loadGraphic(Paths.image('controllertype'), true, 82, 60);
-		controllerSpr.antialiasing = ClientPrefs.data.antialiasing;
+		controllerSpr.antialiasing = Preferences.data.antialiasing;
 		controllerSpr.animation.add('keyboard', [0], 1, false);
 		controllerSpr.animation.add('gamepad', [1], 1, false);
 		add(controllerSpr);
@@ -181,13 +181,13 @@ class ControlsSubState extends MusicBeatSubstate
 	}
 	function addKeyText(text:Alphabet, option:Array<Dynamic>, id:Int)
 	{
-		var keys:Array<Null<FlxKey>> = ClientPrefs.keyBinds.get(option[2]);
+		var keys:Array<Null<FlxKey>> = Preferences.keyBinds.get(option[2]);
 		if(keys == null && onKeyboardMode)
-			keys = ClientPrefs.defaultKeys.get(option[2]).copy();
+			keys = Preferences.defaultKeys.get(option[2]).copy();
 
-		var gmpds:Array<Null<FlxGamepadInputID>> = ClientPrefs.gamepadBinds.get(option[2]);
+		var gmpds:Array<Null<FlxGamepadInputID>> = Preferences.gamepadBinds.get(option[2]);
 		if(gmpds == null && !onKeyboardMode)
-			gmpds = ClientPrefs.defaultButtons.get(option[2]).copy();
+			gmpds = Preferences.defaultButtons.get(option[2]).copy();
 
 		for (n in 0...2)
 		{
@@ -317,14 +317,14 @@ class ControlsSubState extends MusicBeatSubstate
 
 					binding = true;
 					holdingEsc = 0;
-					ClientPrefs.toggleVolumeKeys(false);
+					Preferences.toggleVolumeKeys(false);
 					FlxG.sound.play(Paths.sound('scrollMenu'));
 				}
 				else
 				{
 					// Reset to Default
-					ClientPrefs.resetKeys(!onKeyboardMode);
-					ClientPrefs.reloadVolumeKeys();
+					Preferences.resetKeys(!onKeyboardMode);
+					Preferences.reloadVolumeKeys();
 					var lastSel:Int = curSelected;
 					createTexts();
 					curSelected = lastSel;
@@ -352,10 +352,10 @@ class ControlsSubState extends MusicBeatSubstate
 				if(holdingEsc > 0.5)
 				{
 					if (onKeyboardMode)
-						ClientPrefs.keyBinds.get(curOption[2])[altNum] = NONE;
+						Preferences.keyBinds.get(curOption[2])[altNum] = NONE;
 					else
-						ClientPrefs.gamepadBinds.get(curOption[2])[altNum] = NONE;
-					ClientPrefs.clearInvalidKeys(curOption[2]);
+						Preferences.gamepadBinds.get(curOption[2])[altNum] = NONE;
+					Preferences.clearInvalidKeys(curOption[2]);
 					updateBind(Math.floor(curSelected * 2) + altNum, onKeyboardMode ? InputFormatter.getKeyName(NONE) : InputFormatter.getGamepadName(NONE));
 					FlxG.sound.play(Paths.sound('cancelMenu'));
 					closeBinding();
@@ -365,8 +365,8 @@ class ControlsSubState extends MusicBeatSubstate
 			{
 				holdingEsc = 0;
 				var changed:Bool = false;
-				var curKeys:Array<FlxKey> = ClientPrefs.keyBinds.get(curOption[2]);
-				var curButtons:Array<FlxGamepadInputID> = ClientPrefs.gamepadBinds.get(curOption[2]);
+				var curKeys:Array<FlxKey> = Preferences.keyBinds.get(curOption[2]);
+				var curButtons:Array<FlxGamepadInputID> = Preferences.gamepadBinds.get(curOption[2]);
 
 				if(onKeyboardMode)
 				{
@@ -435,18 +435,18 @@ class ControlsSubState extends MusicBeatSubstate
 					}
 
 					var option:String = options[curOptions[curSelected]][2];
-					ClientPrefs.clearInvalidKeys(option);
+					Preferences.clearInvalidKeys(option);
 					for (n in 0...2)
 					{
 						var key:String = null;
 						if(onKeyboardMode)
 						{
-							var savKey:Array<Null<FlxKey>> = ClientPrefs.keyBinds.get(option);
+							var savKey:Array<Null<FlxKey>> = Preferences.keyBinds.get(option);
 							key = InputFormatter.getKeyName(savKey[n] != null ? savKey[n] : NONE);
 						}
 						else
 						{
-							var savKey:Array<Null<FlxGamepadInputID>> = ClientPrefs.gamepadBinds.get(option);
+							var savKey:Array<Null<FlxGamepadInputID>> = Preferences.gamepadBinds.get(option);
 							key = InputFormatter.getGamepadName(savKey[n] != null ? savKey[n] : NONE);
 						}
 						updateBind(Math.floor(curSelected * 2) + n, key);
@@ -470,7 +470,7 @@ class ControlsSubState extends MusicBeatSubstate
 
 		bindingText2.destroy();
 		remove(bindingText2);
-		ClientPrefs.reloadVolumeKeys();
+		Preferences.reloadVolumeKeys();
 	}
 
 	function updateText(?change:Int = 0)

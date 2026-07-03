@@ -83,13 +83,13 @@ class CharacterEditorState extends MusicBeatState implements BrainyUIEventHandle
 		add(silhouettes);
 
 		var dad:FlxSprite = new FlxSprite(dadPosition.x, dadPosition.y).loadGraphic(Paths.image('editors/silhouetteDad'));
-		dad.antialiasing = ClientPrefs.data.antialiasing;
+		dad.antialiasing = Preferences.data.antialiasing;
 		dad.active = false;
 		dad.offset.set(-4, 1);
 		silhouettes.add(dad);
 
 		var boyfriend:FlxSprite = new FlxSprite(bfPosition.x, bfPosition.y + 350).loadGraphic(Paths.image('editors/silhouetteBF'));
-		boyfriend.antialiasing = ClientPrefs.data.antialiasing;
+		boyfriend.antialiasing = Preferences.data.antialiasing;
 		boyfriend.active = false;
 		boyfriend.offset.set(-6, 2);
 		silhouettes.add(boyfriend);
@@ -161,7 +161,7 @@ class CharacterEditorState extends MusicBeatState implements BrainyUIEventHandle
 		updateHealthBar();
 		character.finishAnimation();
 
-		if(ClientPrefs.data.cacheOnGPU) Paths.clearUnusedMemory();
+		if(Preferences.data.cacheOnGPU) Paths.clearUnusedMemory();
 
 		super.create();
 	}
@@ -658,7 +658,7 @@ class CharacterEditorState extends MusicBeatState implements BrainyUIEventHandle
 		noAntialiasingCheckBox.checked = character.noAntialiasing;
 		noAntialiasingCheckBox.onClick = function() {
 			character.antialiasing = false;
-			if(!noAntialiasingCheckBox.checked && ClientPrefs.data.antialiasing) {
+			if(!noAntialiasingCheckBox.checked && Preferences.data.antialiasing) {
 				character.antialiasing = true;
 			}
 			character.noAntialiasing = noAntialiasingCheckBox.checked;
@@ -667,7 +667,7 @@ class CharacterEditorState extends MusicBeatState implements BrainyUIEventHandle
 		iconCheckBox = new BrainyUICheckBox(flipXCheckBox.x, flipXCheckBox.y - 80, "Icon is antialiased", 80);
 		iconCheckBox.checked = character.iconIsAntialiased;
 		iconCheckBox.onClick = function() {
-			healthIcon.antialiasing = (iconCheckBox.checked && ClientPrefs.data.antialiasing);
+			healthIcon.antialiasing = (iconCheckBox.checked && Preferences.data.antialiasing);
 			character.iconIsAntialiased = iconCheckBox.checked;
 		};
 
@@ -874,10 +874,10 @@ class CharacterEditorState extends MusicBeatState implements BrainyUIEventHandle
 
 		if(BrainyUIInputText.focusOn != null)
 		{
-			ClientPrefs.toggleVolumeKeys(false);
+			Preferences.toggleVolumeKeys(false);
 			return;
 		}
-		ClientPrefs.toggleVolumeKeys(true);
+		Preferences.toggleVolumeKeys(true);
 
 		var shiftMult:Float = 1;
 		var ctrlMult:Float = 1;

@@ -107,7 +107,7 @@ class FreeplayState extends MusicBeatState
 		Mods.loadTopMod();
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.antialiasing = ClientPrefs.data.antialiasing;
+		bg.antialiasing = Preferences.data.antialiasing;
 		add(bg);
 		bg.screenCenter();
 
@@ -197,7 +197,7 @@ class FreeplayState extends MusicBeatState
 		FlxTween.tween(album, {x: nextPos, angle: 5}, FlxEase.cubeInOut(0.5));
 		loadAlbum('placeholder');
 
-		album.visible = ClientPrefs.data.showAlbum;
+		album.visible = Preferences.data.showAlbum;
 
 		add(album);
 		
@@ -625,7 +625,7 @@ class FreeplayState extends MusicBeatState
 	{
 		super.destroy();
 
-		FlxG.autoPause = ClientPrefs.data.autoPause;
+		FlxG.autoPause = Preferences.data.autoPause;
 		if (!FlxG.sound.music.playing && !stopMusicPlay)
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 	}	

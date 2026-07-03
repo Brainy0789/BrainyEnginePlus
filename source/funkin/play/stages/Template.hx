@@ -1,6 +1,6 @@
-package states.stages;
+package play.stages;
 
-import states.stages.objects.*;
+import play.stages.objects.*;
 
 @:dox(hide)
 class Template extends BaseStage

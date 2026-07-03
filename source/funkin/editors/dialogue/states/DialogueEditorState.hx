@@ -49,7 +49,7 @@ class DialogueEditorState extends MusicBeatState implements BrainyUIEventHandler
 		add(character);
 
 		box = new FlxSprite(70, 370);
-		box.antialiasing = ClientPrefs.data.antialiasing;
+		box.antialiasing = Preferences.data.antialiasing;
 		box.frames = Paths.getSparrowAtlas('speech_bubble');
 		box.scrollFactor.set();
 		box.animation.addByPrefix('normal', 'speech bubble normal', 24);
@@ -307,7 +307,7 @@ class DialogueEditorState extends MusicBeatState implements BrainyUIEventHandler
 
 		if(BrainyUIInputText.focusOn == null)
 		{
-			ClientPrefs.toggleVolumeKeys(true);
+			Preferences.toggleVolumeKeys(true);
 			if(FlxG.keys.justPressed.SPACE) {
 				reloadText(false);
 			}
@@ -356,7 +356,7 @@ class DialogueEditorState extends MusicBeatState implements BrainyUIEventHandler
 				changeText(1);
 			}
 		}
-		else ClientPrefs.toggleVolumeKeys(false);
+		else Preferences.toggleVolumeKeys(false);
 		super.update(elapsed);
 	}
 

@@ -1,6 +1,6 @@
-package brainy.ui;
+package core.ui;
 
-import brainy.ui.BrainyUIBox.UIStyleData;
+import core.ui.BrainyUIBox.UIStyleData;
 
 class BrainyUIButton extends FlxSpriteGroup
 {

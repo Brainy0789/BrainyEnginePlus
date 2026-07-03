@@ -1,4 +1,4 @@
-package states.stages;
+package play.stages;
 
 import openfl.filters.ShaderFilter;
 import shaders.RainShader;
@@ -7,7 +7,7 @@ import flixel.addons.display.FlxTiledSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 
 import funkin.substates.GameOverSubstate;
-import states.stages.objects.*;
+import play.stages.objects.*;
 
 import objects.Note;
 
@@ -49,11 +49,11 @@ class PhillyStreets extends BaseStage
 	var abot:ABotSpeaker;
 	override function create()
 	{
-		if(!ClientPrefs.data.lowQuality)
+		if(!Preferences.data.lowQuality)
 		{
 			var skyImage = Paths.image('phillyStreets/phillySkybox');
 			scrollingSky = new FlxTiledSprite(skyImage, skyImage.width + 400, skyImage.height, true, false);
-			scrollingSky.antialiasing = ClientPrefs.data.antialiasing;
+			scrollingSky.antialiasing = Preferences.data.antialiasing;
 			scrollingSky.setPosition(-650, -375);
 			scrollingSky.scrollFactor.set(0.1, 0.1);
 			scrollingSky.scale.set(0.65, 0.65);
@@ -77,7 +77,7 @@ class PhillyStreets extends BaseStage
 		add(phillyHighwayLights);
 		darkenable.push(phillyHighwayLights);
 
-		if(!ClientPrefs.data.lowQuality)
+		if(!Preferences.data.lowQuality)
 		{
 			var phillyHighwayLightsLightmap:BGSprite = new BGSprite('phillyStreets/phillyHighwayLights_lightmap', 284, 305, 1, 1);
 			phillyHighwayLightsLightmap.blend = ADD;
@@ -90,7 +90,7 @@ class PhillyStreets extends BaseStage
 		add(phillyHighway);
 		darkenable.push(phillyHighway);
 
-		if(!ClientPrefs.data.lowQuality)
+		if(!Preferences.data.lowQuality)
 		{
 			var phillySmog:BGSprite = new BGSprite('phillyStreets/phillySmog', -6, 245, 0.8, 1);
 			add(phillySmog);
@@ -124,10 +124,10 @@ class PhillyStreets extends BaseStage
 		add(phillyForeground);
 		darkenable.push(phillyForeground);
 		
-		if(!ClientPrefs.data.lowQuality)
+		if(!Preferences.data.lowQuality)
 		{
 			picoFade = new FlxSprite();
-			picoFade.antialiasing = ClientPrefs.data.antialiasing;
+			picoFade.antialiasing = Preferences.data.antialiasing;
 			picoFade.alpha = 0;
 			add(picoFade);
 			darkenable.push(picoFade);
@@ -137,7 +137,7 @@ class PhillyStreets extends BaseStage
 		updateABotEye(true);
 		add(abot);
 		
-		if(ClientPrefs.data.shaders)
+		if(Preferences.data.shaders)
 			setupRainShader();
 
 		var _song = PlayState.SONG;
@@ -458,7 +458,7 @@ class PhillyStreets extends BaseStage
 		function precacheCasing()
 		{
 			if(didCreateCasing) return;
-			if(!ClientPrefs.data.lowQuality)
+			if(!Preferences.data.lowQuality)
 			{
 				casingFrames = Paths.getSparrowAtlas('PicoBullet'); //precache
 				casingGroup = new FlxSpriteGroup();
@@ -619,7 +619,7 @@ class PhillyStreets extends BaseStage
 				// In other states, don't interrupt the existing animation.
 		}
 
-		if(ClientPrefs.data.lowQuality) return;
+		if(Preferences.data.lowQuality) return;
 
 		if (FlxG.random.bool(10) && curBeat != (lastChange + changeInterval) && carInterruptable == true)
 		{
@@ -851,7 +851,7 @@ class PhillyStreets extends BaseStage
 
 	function createCasing()
 	{
-		if(ClientPrefs.data.lowQuality) return;
+		if(Preferences.data.lowQuality) return;
 
 		var casing:FlxSprite = new FlxSprite(boyfriend.x + 250, boyfriend.y + 100);
 		casing.frames = casingFrames;
@@ -982,7 +982,7 @@ class PhillyStreets extends BaseStage
 
 	function showPicoFade()
 	{
-		if(ClientPrefs.data.lowQuality) return;
+		if(Preferences.data.lowQuality) return;
 
 		picoFade.setPosition(boyfriend.x, boyfriend.y);
 		picoFade.frames = boyfriend.frames;

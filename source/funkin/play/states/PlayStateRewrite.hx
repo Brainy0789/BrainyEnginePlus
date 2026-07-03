@@ -1,7 +1,7 @@
 package states;
 
 import objects.Strum;
-import states.stages.*;
+import play.stages.*;
 import core.Song;
 
 typedef PlayStateParameters = 

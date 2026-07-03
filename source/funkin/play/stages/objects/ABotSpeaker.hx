@@ -1,4 +1,4 @@
-package states.stages.objects;
+package play.stages.objects;
 
 #if funkin.vis
 import funkin.vis.dsp.SpectralAnalyzer;
@@ -35,7 +35,7 @@ class ABotSpeaker extends FlxSpriteGroup
 	{
 		super(x, y);
 
-		var antialias = ClientPrefs.data.antialiasing;
+		var antialias = Preferences.data.antialiasing;
 
 		bg = new FlxSprite(90, 20).loadGraphic(Paths.image('abot/stereoBG'));
 		bg.antialiasing = antialias;

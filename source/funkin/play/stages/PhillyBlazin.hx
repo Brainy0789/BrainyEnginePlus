@@ -1,4 +1,4 @@
-package states.stages;
+package play.stages;
 
 import openfl.filters.ShaderFilter;
 import shaders.RainShader;
@@ -7,7 +7,7 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.display.FlxTiledSprite;
 
 import funkin.substates.GameOverSubstate;
-import states.stages.objects.*;
+import play.stages.objects.*;
 import objects.Note;
 
 @:dox(hide)
@@ -35,11 +35,11 @@ class PhillyBlazin extends BaseStage
 			spr.updateHitbox();
 		}
 
-		if(!ClientPrefs.data.lowQuality)
+		if(!Preferences.data.lowQuality)
 		{
 			var skyImage = Paths.image('phillyBlazin/skyBlur');
 			scrollingSky = new FlxTiledSprite(skyImage, Std.int(skyImage.width * 1.1) + 475, Std.int(skyImage.height / 1.1), true, false);
-			scrollingSky.antialiasing = ClientPrefs.data.antialiasing;
+			scrollingSky.antialiasing = Preferences.data.antialiasing;
 			scrollingSky.setPosition(-500, -120);
 			scrollingSky.scrollFactor.set();
 			add(scrollingSky);
@@ -59,7 +59,7 @@ class PhillyBlazin extends BaseStage
 		setupScale(phillyForegroundCity);
 		add(phillyForegroundCity);
 		
-		if(!ClientPrefs.data.lowQuality)
+		if(!Preferences.data.lowQuality)
 		{
 			foregroundMultiply = new BGSprite('phillyBlazin/streetBlur', -600, -175, 0.0, 0.0);
 			setupScale(foregroundMultiply);
@@ -79,7 +79,7 @@ class PhillyBlazin extends BaseStage
 		abot = new ABotSpeaker(gfGroup.x, gfGroup.y + 550);
 		add(abot);
 		
-		if(ClientPrefs.data.shaders)
+		if(Preferences.data.shaders)
 			setupRainShader();
 
 		var _song = PlayState.SONG;
@@ -193,7 +193,7 @@ class PhillyBlazin extends BaseStage
 	
 	function applyLightning():Void
 	{
-		if(ClientPrefs.data.lowQuality || game.endingSong) return;
+		if(Preferences.data.lowQuality || game.endingSong) return;
 
 		final LIGHTNING_FULL_DURATION = 1.5;
 		final LIGHTNING_FADE_DURATION = 0.3;

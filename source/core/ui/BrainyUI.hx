@@ -1,7 +1,7 @@
-package brainy.ui;
+package core.ui;
 
 import tjson.TJSON;
-import brainy.ui.*;
+import core.ui.*;
 
 typedef BrainyUIElement = {
     var type:String;

@@ -235,8 +235,8 @@ class NoteSplash extends FlxSprite
 						{
 							if (i > 2) break;
 
-							var arr:Array<FlxColor> = ClientPrefs.data.arrowRGB[noteData % Note.colArray.length];
-							if (PlayState.isPixelStage) arr = ClientPrefs.data.arrowRGBPixel[noteData % Note.colArray.length];
+							var arr:Array<FlxColor> = Preferences.data.arrowRGB[noteData % Note.colArray.length];
+							if (PlayState.isPixelStage) arr = Preferences.data.arrowRGBPixel[noteData % Note.colArray.length];
 
 							var rgb = colors[i];
 							if (rgb == null)
@@ -292,10 +292,10 @@ class NoteSplash extends FlxSprite
 			spawned = false;
 		}
 
-		alpha = ClientPrefs.data.splashAlpha;
+		alpha = Preferences.data.splashAlpha;
 		if (note != null) alpha = note.noteSplashData.a;
 
-		antialiasing = ClientPrefs.data.antialiasing;
+		antialiasing = Preferences.data.antialiasing;
 		if (note != null) antialiasing = note.noteSplashData.antialiasing;
 		if (PlayState.isPixelStage && config.allowPixel) antialiasing = false;
 
@@ -362,8 +362,8 @@ class NoteSplash extends FlxSprite
 	public static function getSplashSkinPostfix()
 	{
 		var skin:String = '';
-		if (ClientPrefs.data.splashSkin != ClientPrefs.defaultData.splashSkin)
-			skin = '-' + ClientPrefs.data.splashSkin.trim().toLowerCase().replace(' ', '-');
+		if (Preferences.data.splashSkin != Preferences.defaultData.splashSkin)
+			skin = '-' + Preferences.data.splashSkin.trim().toLowerCase().replace(' ', '-');
 		return skin;
 	}
 

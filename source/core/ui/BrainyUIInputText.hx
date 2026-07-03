@@ -1,4 +1,4 @@
-package brainy.ui;
+package core.ui;
 
 import flixel.FlxObject;
 import flixel.input.keyboard.FlxKey;

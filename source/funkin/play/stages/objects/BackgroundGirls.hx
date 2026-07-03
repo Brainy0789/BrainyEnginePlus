@@ -1,4 +1,4 @@
-package states.stages.objects;
+package play.stages.objects;
 
 class BackgroundGirls extends FlxSprite
 {

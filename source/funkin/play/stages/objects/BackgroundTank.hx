@@ -1,4 +1,4 @@
-package states.stages.objects;
+package play.stages.objects;
 
 class BackgroundTank extends BGSprite
 {
@@ -11,7 +11,7 @@ class BackgroundTank extends BGSprite
 		super('tankRolling', 0, 0, 0.5, 0.5, ['BG tank w lighting'], true);
 		tankSpeed = FlxG.random.float(5, 7);
 		tankAngle = FlxG.random.int(-90, 45);
-		antialiasing = ClientPrefs.data.antialiasing;
+		antialiasing = Preferences.data.antialiasing;
 	}
 
 	override function update(elapsed:Float)
