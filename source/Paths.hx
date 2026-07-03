@@ -1,4 +1,4 @@
-package core;
+package;
 
 import flixel.graphics.frames.FlxFrame.FlxFrameAngle;
 import flixel.graphics.frames.FlxAtlasFrames;

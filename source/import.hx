@@ -23,7 +23,7 @@ import sys.io.*;
 import js.html.*;
 #end
 
-import core.Paths;
+import Paths;
 import core.Controls;
 import core.CoolUtil;
 import core.MusicBeatState;
